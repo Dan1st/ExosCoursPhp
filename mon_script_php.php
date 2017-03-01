@@ -6,6 +6,9 @@
     </head>
     <body>
         <h1>Ma page web</h1>
+        <?php
+        date_default_timezone_set("America/Montreal");
+        ?>
         <p>Aujourd'hui nous sommes le <?php echo date("d/m/Y h:i:s"); ?>.</p>
     </body>
 </html>
