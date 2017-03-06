@@ -21,7 +21,17 @@
 
         <!-- Add your site or application content here -->
         <?php include("includes/menu.php"); ?>
-        <p>Bonjour <?php echo $_GET['prenom'] . ' ' . $_GET['nom']; ?> !</p>
+
+        <?php
+            if (isset($_GET['prenom']) AND isset($_GET['nom'])) // On a le nom et le prénom
+            {
+                echo 'Bonjour ' . $_GET['prenom'] . ' ' . $_GET['nom'] . ' !';
+            }
+            else // Il manque des paramètres, on avertit le visiteur
+            {
+                echo 'Il faut renseigner un nom et un prénom !';
+            }
+        ?>
 
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
