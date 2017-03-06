@@ -95,6 +95,8 @@ $minute = date('i');
 echo 'Bonjour ! Nous sommes le ' . $jour . '/' . $mois . '/' . $annee . 'et il est ' . $heure. ' h ' . $minute;
 ?>
 
+<a href="bonjour.php?nom=Beaudet&amp;prenom=Daniel">Dis-moi bonjour !</a>
+
 
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
