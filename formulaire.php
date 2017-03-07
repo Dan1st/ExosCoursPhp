@@ -23,10 +23,16 @@
         <p>Cette page ne contient que du HTML.<br />
         Veuillez taper votre prénom :</p>
 
-        <form action="cible.php" method="post">
+        <form action="cible.php" method="post"  enctype="multipart/form-data">
             <p>
-                <input type="text" name="prenom" />
+                <input type="text" name="prenom" /><br />
+                <input type="file" name="monfichier" /><br />
                 <input type="submit" value="Valider" />
+            </p>
+            <p>
+            Aimez-vous les frites ?
+                <input type="radio" name="frites" value="oui" id="oui" checked="checked" /> <label for="oui">Oui</label>
+                <input type="radio" name="frites" value="non" id="non" /> <label for="non">Non</label>
             </p>
         </form>
 
