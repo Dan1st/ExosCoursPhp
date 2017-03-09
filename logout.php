@@ -1,15 +1,8 @@
-<?php
-// On démarre la session AVANT d'écrire du code HTML
-session_start();
+$_SESSION["user"] = NULL;
 
-// On s'amuse à créer quelques variables de session dans $_SESSION
-$_SESSION["prenom"] = "Daniel";
-$_SESSION["nom"] = "Dupont";
-$_SESSION["age"] = 24;
+    session_destroy();
 
-// Finalement, on détruit la session.
-session_destroy();
-?>
+    header("location: ./");
 
 <!doctype html>
 <html class="no-js" lang="">
@@ -33,15 +26,8 @@ session_destroy();
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>
-        Salut <?php echo $_SESSION['prenom']; ?> !<br />
-        Tu es à l'accueil de mon site (index.php). Tu veux aller sur une autre page ?
-        </p>
-        <p>
-            <a href="session.php">Lien vers mapage.php</a><br />
-            <a href="monscript.php">Lien vers monscript.php</a><br />
-            <a href="informations.php">Lien vers informations.php</a>
-        </p>
+        <a href="./logout.php">Se deconnecter</a>
+        
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>

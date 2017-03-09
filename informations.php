@@ -6,9 +6,6 @@ session_start();
 $_SESSION["prenom"] = "Daniel";
 $_SESSION["nom"] = "Dupont";
 $_SESSION["age"] = 24;
-
-// Finalement, on détruit la session.
-session_destroy();
 ?>
 
 <!doctype html>
@@ -33,15 +30,19 @@ session_destroy();
         <![endif]-->
 
         <!-- Add your site or application content here -->
+        <p>Re-bonjour !</p>
         <p>
-        Salut <?php echo $_SESSION['prenom']; ?> !<br />
-        Tu es à l'accueil de mon site (index.php). Tu veux aller sur une autre page ?
+            Je me souviens de toi ! Tu t'appelles <?php echo $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?> !<br />
+            Et ton âge hummm... Tu as <?php echo $_SESSION['age']; ?> ans, c'est ça ? :-D
         </p>
         <p>
-            <a href="session.php">Lien vers mapage.php</a><br />
+            <a href="session.php">Lien vers session.php</a>
             <a href="monscript.php">Lien vers monscript.php</a><br />
             <a href="informations.php">Lien vers informations.php</a>
         </p>
+
+        <a href="session.php?action=logout"><input type="button" value="Déconnexion"></a>
+        
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
