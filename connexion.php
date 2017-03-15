@@ -36,14 +36,15 @@
             // Si tout va bien, on peut continuer
 
             // On récupère tout le contenu de la table jeux_video
-            $reponse = $bdd->query('SELECT nom FROM jeux_video');
+            $reponse = $bdd->query("SELECT * FROM jeux_video WHERE possesseur='Patrick'");
 
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
             ?>
                 <p>
-                <strong>Jeu</strong> : <?php echo $donnees['nom']; ?>
+                <strong>Jeu</strong> : <?php echo $donnees['nom'] . ' appartient à ' . $donnees['possesseur']; ?>
+
                </p>
             <?php
             }
