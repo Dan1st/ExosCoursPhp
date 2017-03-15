@@ -36,7 +36,7 @@
             // Si tout va bien, on peut continuer
 
             // On récupère tout le contenu de la table jeux_video
-            $reponse = $bdd->query("SELECT * FROM jeux_video WHERE possesseur='Patrick'");
+            $reponse = $bdd->query("SELECT * FROM jeux_video WHERE possesseur='Patrick' AND prix < 20");
 
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
