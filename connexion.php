@@ -36,7 +36,7 @@
             // Si tout va bien, on peut continuer
 
             // On récupère tout le contenu de la table jeux_video
-            $reponse = $bdd->query("SELECT * FROM jeux_video LIMIT 0, 10");
+            $reponse = $bdd->query("SELECT nom, possesseur, console, prix FROM jeux_video WHERE console='Xbox' OR console='PS2' ORDER BY prix DESC LIMIT 0,10");
 
             echo '<p><strong>Voici les 10 premières entrées de la table jeux_video :</strong></p>';  
             // On affiche chaque entrée une à une
@@ -44,7 +44,7 @@
             {
             ?>
                 <p>
-                <?php echo $donnees['nom'] ?>
+                <?php echo $donnees['nom'] . ' prix ' . $donnees['prix'] . ' $' ?>
 
                </p>
             <?php
