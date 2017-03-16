@@ -21,38 +21,21 @@
 
         <!-- Add your site or application content here -->
         <?php
-            try
-            {
-                // On se connecte à MySQL
-                $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
-                $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION );
-            }
-            catch(Exception $e)
-            {
-                // En cas d'erreur, on affiche un message et on arrête tout
-                    die('Erreur : '.$e->getMessage());
-            }
+        try
+        {
+            $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+            $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION );
+        }
+        catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
 
-            // Si tout va bien, on peut continuer
+// On ajoute une entrée dans la table jeux_video
+$bdd->exec('INSERT INTO jeux_video(nom, possesseur, console, prix, nbre_joueurs_max, commentaires) VALUES(\'Battlefield 1942\', \'Patrick\', \'PC\', 45, 50, \'2nde guerre mondiale\')');
 
-            // On récupère tout le contenu de la table jeux_video
-            $reponse = $bdd->query("SELECT nom, possesseur, console, prix FROM jeux_video WHERE console='Xbox' OR console='PS2' ORDER BY prix DESC LIMIT 0,10");
-
-            echo '<p><strong>Voici les 10 premières entrées de la table jeux_video :</strong></p>';  
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-                <p>
-                <?php echo $donnees['nom'] . ' prix ' . $donnees['prix'] . ' $' ?>
-
-               </p>
-            <?php
-            }
-
-            $reponse->closeCursor(); // Termine le traitement de la requête
-
-        ?>
+echo 'Le jeu a bien été ajouté !';
+?>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
