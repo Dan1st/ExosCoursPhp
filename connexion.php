@@ -32,9 +32,9 @@
             }
 
             // On ajoute une entrée dans la table jeux_video
-            $bdd->exec("UPDATE jeux_video SET possesseur = 'Florent' WHERE possesseur = 'Michel'");
 
-            echo 'Le jeu a bien été modifé !';
+            $nb_modifs = $bdd->exec("DELETE FROM jeux_video WHERE nom='Battlefield 1942'");
+echo $nb_modifs . ' entrées ont été modifiées !';
         ?>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
