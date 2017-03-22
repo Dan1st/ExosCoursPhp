@@ -36,10 +36,10 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query("SELECT AVG(prix) AS prix_moyen FROM jeux_video WHERE possesseur='Patrick'");
+                $reponse = $bdd->query("SELECT SUM(prix) AS prix_max FROM jeux_video");
 
                 $donnees = $reponse->fetch();
-                echo $donnees['prix_moyen'];
+                echo $donnees['prix_max'];
 
                 $reponse->closeCursor();
 
