@@ -36,11 +36,12 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query('SELECT UPPER(nom) AS nom_maj FROM jeux_video');
+                $reponse = $bdd->query('SELECT UPPER(nom) AS nom_maj, possesseur, console, prix FROM jeux_video');
 
                 while ($donnees = $reponse->fetch())
                 {
-                    echo $donnees['nom_maj'] . '<br />';
+                    echo $donnees['nom_maj'] . ' ' . $donnees['possesseur']  . ' ' . $donnees['console'] . ' ' . $donnees['prix'] . '<br />';
+
                 }
 
                 $reponse->closeCursor();
