@@ -36,17 +36,14 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query('SELECT UPPER(nom) AS nom_maj, possesseur, console, prix FROM jeux_video');
+                $reponse = $bdd->query('SELECT AVG(prix) AS prix_moyen FROM jeux_video');
 
-                while ($donnees = $reponse->fetch())
-                {
-                    echo $donnees['nom_maj'] . ' ' . $donnees['possesseur']  . ' ' . $donnees['console'] . ' ' . $donnees['prix'] . '<br />';
-
-                }
+                $donnees = $reponse->fetch();
+                echo $donnees['prix_moyen'];
 
                 $reponse->closeCursor();
 
-            ?>
+                ?>
  
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
          <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
