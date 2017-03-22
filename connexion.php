@@ -36,10 +36,10 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query("SELECT MAX(prix) AS prix_max FROM jeux_video");
+                $reponse = $bdd->query("SELECT MIN(prix) AS prix_min FROM jeux_video");
 
                 $donnees = $reponse->fetch();
-                echo $donnees['prix_max'];
+                echo $donnees['prix_min'];
 
                 $reponse->closeCursor();
 
