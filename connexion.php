@@ -36,7 +36,7 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query("SELECT SUM(prix) AS prix_max FROM jeux_video");
+                $reponse = $bdd->query("SELECT MAX(prix) AS prix_max FROM jeux_video");
 
                 $donnees = $reponse->fetch();
                 echo $donnees['prix_max'];
