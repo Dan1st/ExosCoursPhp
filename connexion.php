@@ -36,7 +36,7 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query('SELECT AVG(prix) AS prix_moyen FROM jeux_video');
+                $reponse = $bdd->query("SELECT AVG(prix) AS prix_moyen FROM jeux_video WHERE possesseur='Patrick'");
 
                 $donnees = $reponse->fetch();
                 echo $donnees['prix_moyen'];
