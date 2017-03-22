@@ -22,6 +22,7 @@
         <!-- Add your site or application content here -->
     
         <?php
+            setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
             // Connexion à la base de données
             try
             {
