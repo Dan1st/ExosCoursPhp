@@ -36,10 +36,10 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query("SELECT MIN(prix) AS prix_min FROM jeux_video");
+                $reponse = $bdd->query("SELECT COUNT(*) AS nbjeux FROM jeux_video WHERE possesseur='Florent'");
 
                 $donnees = $reponse->fetch();
-                echo $donnees['prix_min'];
+                echo $donnees['nbjeux'];
 
                 $reponse->closeCursor();
 
