@@ -36,7 +36,7 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-            $reponse = $bdd->query("SELECT AVG(prix) AS prix_moyen, console FROM jeux_video GROUP BY console");
+            $reponse = $bdd->query("SELECT AVG(prix) AS prix_moyen, console FROM jeux_video WHERE possesseur='Patrick' GROUP BY console HAVING prix_moyen <= 10");
   
            
               // On affiche chaque entrée une à une
