@@ -53,15 +53,9 @@
         }
 
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query("SELECT pseudo, message, date_creation FROM minichat WHERE date_creation >= '2010-04-02 15:28:22'");
+        $bdd->exec("INSERT INTO minichat(pseudo, message, date_creation) VALUES('Daniel', 'Message !', NOW()) ");
 
-        // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
-        while ($donnees = $reponse->fetch())
-        {
-            echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
-        }
 
-        $reponse->closeCursor();
 
         ?>
 
