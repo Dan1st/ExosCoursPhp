@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
  <html class="no-js" lang="">
      <head>
          <meta charset="utf-8">
@@ -36,14 +36,23 @@
               // Si tout va bien, on peut continuer
   
               // On récupère tout le contenu de la table jeux_video
-                $reponse = $bdd->query("SELECT COUNT(*) AS nbjeux FROM jeux_video WHERE possesseur='Florent'");
-
-                $donnees = $reponse->fetch();
-                echo $donnees['nbjeux'];
-
-                $reponse->closeCursor();
-
-                ?>
+            $reponse = $bdd->query("SELECT AVG(prix) AS prix_moyen, console FROM jeux_video GROUP BY console");
+  
+           
+              // On affiche chaque entrée une à une
+              while ($donnees = $reponse->fetch())
+              {
+              ?>
+                  <p>
+                    <?php echo $donnees['prix_moyen'] ?>
+                    <?php echo $donnees['console'] ?>
+                 </p>
+              <?php
+             }
+ 
+             $reponse->closeCursor(); // Termine le traitement de la requête
+ 
+         ?>
  
          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
          <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
