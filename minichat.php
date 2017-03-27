@@ -53,7 +53,7 @@
         }
 
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, message FROM minichat ORDER BY ID DESC LIMIT 0, 10');
+        $reponse = $bdd->query("SELECT pseudo, message, date_creation FROM minichat WHERE date_creation >= '2010-04-02 15:28:22'");
 
         // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
         while ($donnees = $reponse->fetch())
